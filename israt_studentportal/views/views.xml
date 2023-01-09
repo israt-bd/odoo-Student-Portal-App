@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+    <data>
+
+        <record id="student_portal_list" model="ir.ui.view">
+            <field name="name">school.list.view</field>
+            <field name="model">student.portal</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="_id"/>
+                    <field name="name"/>
+                    <field name="email"/>
+                    <field name="phone"/>
+                    <field name="_address"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="student_form_view" model="ir.ui.view">
+            <field name="name">school.form.view</field>
+            <field name="model">student.portal</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                    <group>
+                        <field name="image" widget="image" class ="oe_avatar"/>
+                        <group>
+
+                            <field name="_id"/>
+                            <field name="name"/>
+                            <field name="email"/>
+
+                        </group>
+                        <group>
+                             <field name="phone"/>
+                            <field name="_address"/>
+                            <field name="blood"/>
+
+                        </group>
+                    </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="action_student_portal" model="ir.actions.act_window">
+            <field name="name">student portal</field>
+            <field name="res_model">student.portal</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <menuitem id="school_root_menu" name="Student Portal"/>
+        <menuitem id="school_sub_menu" name="Student" parent="school_root_menu"/>
+        <menuitem id="student_portal_menu" action="action_student_portal" parent="school_sub_menu"/>
+
+
+    </data>
+
+
+</odoo>
